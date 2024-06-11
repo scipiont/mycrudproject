@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Клиенты</title>
@@ -8,6 +8,24 @@
     <ul>
         {% for client in clients %}
             <li><a href="{% url 'client_detail' client.id %}">{{ client.name }}</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Клиенты</title>
+</head>
+<body>
+    <h1>Клиенты</h1>
+    <ul>
+        {% for client in clients %}
+            <li>
+                <a href="{% url 'client_detail' client.id %}">{{ client.name }}</a>
+                - <a href="{% url 'client_ordered_products' client.id %}">Заказанные товары</a>
+            </li>
         {% endfor %}
     </ul>
 </body>

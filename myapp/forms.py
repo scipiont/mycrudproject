@@ -50,6 +50,6 @@ class OrderForm(forms.ModelForm):
         labels = {
             'client': 'Клиент',
             'products': 'Товары',
-            'total_amount': 'Общая сумма заказа',
+            'total_amount': 'Количество заказа',
             'order_date': 'Дата оформления заказа',
         }
