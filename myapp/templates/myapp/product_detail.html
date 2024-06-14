@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>{{ product.name }}</title>
@@ -9,5 +9,26 @@
     <p>Цена: {{ product.price }}</p>
     <p>Количество: {{ product.quantity }}</p>
     <p>Дата добавления товара: {{ product.date_added }}</p>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+    <p>Описание: {{ product.description }}</p>
+    <p>Цена: {{ product.price }}</p>
+    <p>Количество: {{ product.quantity }}</p>
+    <p>Дата добавления: {{ product.date_added }}</p>
+    {% if product.photo %}
+        <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-width: 300px; max-height: 300px;">
+    {% else %}
+        <p>Фотография отсутствует</p>
+    {% endif %}
+    <a href="{% url 'product_update' product.id %}">Редактировать</a>
+    <a href="{% url 'product_list' %}">Назад к списку продуктов</a>
 </body>
 </html>
