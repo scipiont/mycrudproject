@@ -15,7 +15,7 @@ pdfmetrics.registerFont(TTFont('DejaVuSans', 'DejaVuSans.ttf'))
 def export_clients_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=clients.csv'
-    response.write('\ufeff'.encode('utf8'))  # Добавляем BOM для корректного отображения в Excel
+    response.write('\ufeff'.encode('utf8'))  
     writer = csv.writer(response)
     writer.writerow(['ID', 'Имя', 'Электронная почта', 'Номер телефона', 'Адрес', 'Дата регистрации'])
     for client in queryset:
@@ -27,7 +27,7 @@ export_clients_csv.short_description = 'Экспорт в CSV'
 def export_products_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=products.csv'
-    response.write('\ufeff'.encode('utf8'))  # Добавляем BOM для корректного отображения в Excel
+    response.write('\ufeff'.encode('utf8'))  
     writer = csv.writer(response)
     writer.writerow(['ID', 'Название', 'Описание', 'Цена', 'Количество', 'Дата добавления'])
     for product in queryset:
@@ -39,7 +39,7 @@ export_products_csv.short_description = 'Экспорт в CSV'
 def export_orders_csv(modeladmin, request, queryset):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename=orders.csv'
-    response.write('\ufeff'.encode('utf8'))  # Добавляем BOM для корректного отображения в Excel
+    response.write('\ufeff'.encode('utf8'))  
     writer = csv.writer(response)
     writer.writerow(['ID', 'Клиент', 'Общая сумма', 'Дата заказа'])
     for order in queryset:
@@ -53,7 +53,7 @@ def draw_wrapped_text(canvas, text, x, y, max_width):
     lines = simpleSplit(text, 'DejaVuSans', 12, max_width)
     for line in lines:
         canvas.drawString(x, y, line)
-        y -= 14  # Высота строки
+        y -= 14  
     return y
 
 # Действия для выгрузки данных в PDF
