@@ -7,7 +7,7 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.lib.utils import simpleSplit
 from django.contrib.staticfiles import finders
 
-# Найти путь к шрифту DejaVuSans.ttf
+
 font_path = finders.find('fonts/DejaVuSans.ttf')
 if font_path:
     pdfmetrics.registerFont(TTFont('DejaVuSans', font_path))
@@ -21,7 +21,7 @@ class ExportCsvMixin:
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = f'attachment; filename={meta}.csv'
-        response.write('\ufeff'.encode('utf8'))  # Добавляем BOM для корректного отображения в Excel
+        response.write('\ufeff'.encode('utf8')) 
         writer = csv.writer(response)
 
         writer.writerow(field_names)
