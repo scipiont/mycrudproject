@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Order {{ order.id }}</title>
+    <title>Заказ {{ order.id }}</title>
 </head>
 <body>
-    <h1>Order {{ order.id }}</h1>
-    <p>Client: {{ order.client.name }}</p>
-    <p>Total Amount: {{ order.total_amount }}</p>
-    <p>Order Date: {{ order.order_date }}</p>
-    <h2>Products</h2>
+    <h1>Заказ {{ order.id }}</h1>
+    <p>Клиент: {{ order.client.name }}</p>
+    <p>Количество: {{ order.total_amount }}</p>
+    <p>Дата заказа: {{ order.order_date }}</p>
+    <h2>Товары</h2>
     <ul>
         {% for product in order.products.all %}
             <li>{{ product.name }} - {{ product.price }}</li>

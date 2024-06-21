@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказанные товары для {{ client.name }}</title>
+</head>
+<body>
+    <h1>Заказанные товары для {{ client.name }}</h1>
+
+    <h2>Товары, заказанные за последние 7 дней</h2>
+    <ul>
+        {% for product, order_date in products_last_7_days %}
+            <li>{{ product.name }} - {{ product.description }} (Дата заказа: {{ order_date }})</li>
+        {% empty %}
+            <li>Нет товаров, заказанных за последние 7 дней.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Товары, заказанные за последние 30 дней</h2>
+    <ul>
+        {% for product, order_date in products_last_30_days %}
+            <li>{{ product.name }} - {{ product.description }} (Дата заказа: {{ order_date }})</li>
+        {% empty %}
+            <li>Нет товаров, заказанных за последние 30 дней.</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Товары, заказанные за последние 365 дней</h2>
+    <ul>
+        {% for product, order_date in products_last_365_days %}
+            <li>{{ product.name }} - {{ product.description }} (Дата заказа: {{ order_date }})</li>
+        {% empty %}
+            <li>Нет товаров, заказанных за последние 365 дней.</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'client_list' %}">Назад к списку клиентов</a>
+</body>
+</html>
