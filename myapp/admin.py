@@ -141,3 +141,4 @@ class OrderAdmin(admin.ModelAdmin, ExportCsvMixin, ExportPdfMixin):
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Order, OrderAdmin)
+#
